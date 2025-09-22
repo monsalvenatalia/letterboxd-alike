@@ -1,0 +1,4 @@
+DJANGO_DEBUG=True
+DEBUG_TOOLBAR=True
+SITE_URL='http://localhost:800'
+

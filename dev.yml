@@ -1,0 +1,31 @@
+version: "3.8"
+
+services: 
+  django: &django #In case we use celery in a future, which will need the same configurations as our django service
+    build:
+      context: .
+      dockerfile: ./compose/dev/django/dockerfile
+    image: my_django_service
+    depends_on: 
+      - postgres
+    volumes: 
+      - ./app_media:/var/lib/django/data
+    env_file:
+      - ./.envs/.dev/.django
+      - ./envs/.dev/.postgres
+    ports:
+      "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/dev/postgres/dockerfile
+    image: my_postgres_service
+    env_file:
+      - ./envs/.dev/.postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
