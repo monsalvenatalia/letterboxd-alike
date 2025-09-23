@@ -1,5 +1,0 @@
-POSTGRES_HOST=postgres
-POSTGRES_PORT=5432
-POSTGRES_DB=PlotTwist
-POSTGRES_USER=PlotTwistManager
-POSTGRES_PASSWORD=klphrmpg93rth_mbnzw
