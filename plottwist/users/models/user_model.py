@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.utils.translations import gettext_lazy as _ 
-from movies.models import Movie
+from django.db import models
 
 
 class User(AbstractUser):
@@ -14,15 +14,22 @@ class User(AbstractUser):
         _('Avatar'),
         upload_to="avatars/", 
         blank=True, 
-        default="avatars/default.png"
+        default="default.png"
     )
 
     movies = models.ManyToManyField(
         "movies.Movie",          
-        through= "movies.MovieUser",
+        through= "movies.Review",
         related_name= "users", 
         verbose_name= "Watched movies"
     )
 
+    class Meta:
+        ordering= ["email"]
+        verbose_name= _("User")
+        verbose_name_plural= _("Users")
+
     def __str__(self):
         return self.username
+
+    

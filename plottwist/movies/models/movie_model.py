@@ -47,44 +47,31 @@ class Movie(models.Model):
         _('Genre'),
         max_length= 2, 
         choices= Genre, 
-        blank= True, 
-        null= True
+        null= True, 
+        blank= True
+    )
+
+    director = models.ForeignKey(
+        "users.Director", 
+        verbose_name= _("Director"), 
+        related_name="movies",
+        on_delete= models.SET_NULL,
+        null= True,
+        blank= True
     )
 
     synopsis = models.TextField(
         _('Synopsis'), 
-        blank= True
-    )
-
-    def __str__(self):
-        return self.title
-
-
-class MovieUser(models.Model):
-
-    user = models.ForeignKey(
-        _('User'),
-        on_delete= models.CASCADE
-    )
-
-    movie = models.ForeignKey(
-        _('Movie'),
-        on_delete= models.CASCADE
-    )
-
-    watched = models.BooleanField(
-        default= False
-    )
-
-    rating = models.PositiveSmallIntegerField(
-        _('Rating'),
-        null= True,
         blank= True, 
-        validators= [MinValueValidator(1), MaxValueValidator(5)]
+        max_length= 3000,
+        help_text=_('The synopsis length msut not exceed 3000 characters')
     )
 
     class Meta:
-        unique_together = ('user', 'movie')  
+        ordering= ["-year"]
+        verbose_name= _("Movie")
+        verbose_names= _("Movies")
 
-
+    def __str__(self):
+        return self.title
 

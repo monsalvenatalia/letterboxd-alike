@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.__pycache__
+*.pyo
+*.pyd
+*.sqlite3
+
+
+# Django 
+*.log
+*.pot 
+*.py[cod] 
+*.swp
+db.sqlite3
+
+# Envs
+.envs/
+
+# VSCode
+.vscode/
+.idea/
+
+# Project specific
+app_media/avatars/
+
+# React/Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp.*
+.pnp.js
+
