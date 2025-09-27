@@ -4,3 +4,13 @@ psycopg2-binary==2.9
 sqlparse==0.5.3
 tzdata==2025.1
 whitenoise==6.9.0
+django-cors-headers==4.9.0
+django-environ==0.11
+django-health-check==4.5
+django-filter==23.2
+requests==2.30.2
+django-countries==9.5
+django-ckeditor==7.2
+django-rest-auth==0.9.5
+django-crispy-forms==2.5
+django-rosetta==0.9.8

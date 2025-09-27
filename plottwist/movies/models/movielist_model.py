@@ -2,7 +2,8 @@ from django.db import models
 
 from django.utils.translations import gettext_lazy as _ 
 
- class MovieList(models.Model):
+class MovieList(models.Model):
+
     user = models.ForeignKey(
         "users.User",
         verbose_name=_("User"),
@@ -21,7 +22,7 @@ from django.utils.translations import gettext_lazy as _
     )
 
     movies = models.ManyToManyField(
-        "Movie",
+        "movies.Movie",
         related_name="in_lists",
         verbose_name=_("Movies"),
         blank=True

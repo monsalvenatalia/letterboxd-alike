@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Review, MovieList
+from .models import Movie, Review, MovieList
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
